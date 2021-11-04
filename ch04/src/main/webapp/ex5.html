@@ -8,7 +8,7 @@ p {
 	font-family: "맑은 고딕";
 	font-size: 0.75em;
 	line-height:1.5em;
-	text-align:justify;
+	text-align: justify;
 }
 
 p.text1 {
@@ -47,7 +47,16 @@ p.word_space {
 	word-spacing:10px;
 }
 
+/* ellipsis */
+p.text3 {
+	height: 20px;
+	border: 1px solid #999;
 
+	width: 70px;				/* 텍스트를 가지고 있는 엘리먼트의 너비 */
+	overflow: hidden;			/* 글자 길이가 너비를 넘어가는 경우 보이지 않게 처리 */
+	text-overflow: ellipsis;	/* 글자 길이가 너비를 넘어가는 경우 ... 처리 */
+	white-space: nowarp;			/* 공백 문자인 */
+}
 </style>
 </head>
 
