@@ -2,32 +2,54 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>float를 이용한 메뉴 </title>
+<title>백그라운드의 응용</title>
 <style type="text/css">
-ul.nothing, ul.something {
-	font-size: 12px;
-	color: #333;
-	list-style:none;
+body {
+	font-size:12px;
+	margin:10px;
+	padding:10px;
 }
 
-ul.nothing li {
-    font-weight:bold; 
-	margin:5px;
+
+ul.bullet {
+	list-style-type:none;
+	margin:10px 0 0 0;
+	padding:0;
+	border:1px solid #999;
+	border-radius:10px;
+	width:300px;
+	
+	background:#ddd url('/wp_ch3/images/back2.gif') 0 bottom no-repeat
 }
 
+ul.bullet li {
+	width:250px;
+	height:40px;
+	margin:10px 0 0 0;
+	padding:0 0 0 30px;
+	background-image: url(images/bullet1.gif);
+	background-repeat: no-repeat;
+	background-position: 10px top;	
+	
+}
 
 </style>
 </head>
 
 <body>
-<ul class="nothing">
-    <li> 메뉴 1 </li>
-    <li> 메뉴 2 </li>
-    <li> 메뉴 3 </li>
-    <li> 메뉴 4 </li>
-    <li> 메뉴 5 </li>
+<ul class="bullet" style="position: absolute; z-index:100">
+    <li> 1. 리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+    <li> 2. 리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+    <li> 3. 리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+    <li> 4. 리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+    <li> 5. 리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
+    <li> 6. 리스트의 bullet 을 백그라운드로 사용가능합니다.</li>
 </ul>
 
+<div onclick="this.style.display='none';" 
+	style="z-index:101; position: absolute; left: 100px; top: 100px; width: 200px; height: 100px; background-color: #00f">
+	박스입니다.
+</div>
 
 </body>
 </html>
