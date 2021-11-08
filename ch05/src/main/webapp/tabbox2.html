@@ -26,6 +26,11 @@ ul, ol	{ list-style-type: none }
 	line-height: 22px;
 	margin-right: 2px;
 	background-color: #ccc;
+	cursor: pointer;
+}
+
+.tab-box li.selected {
+	background-color: #fC6;
 }
 
 .tab-box div {
@@ -42,16 +47,38 @@ ul, ol	{ list-style-type: none }
 <script>
 // DOM Level 1 Event 처리 : element의 event 속성에 자바스크립트 콛드를 사용하는 방법
 // 2) JavaScipt Code(DOM API)로만 작성하기
+var onTabClicked = function() {
+	console.log("click!!!!!---" + this.innerText);	
+	
+	//unselecte
+	var lisSelected = document.getElementsByClassName("selected");
+	(lisSelected.length === 1) && (lisSelected[0].className = '');	
+// 	if(lisSelected.length === 1){
+// 		lisSelected[0].className = '';	
+// 	}
+	
+	
+	//select
+	this.className = "selected";
+	
+}
 
-
-
-
-
+window.onload = function() {
+	console.log("DOM loaded!");
+	var divTabBox = document.getElementsByClassName("tab-box")[0];
+	console.log(divTabBox.childNodes);
+	
+	var ul = divTabBox.childNodes[1];
+	console.log(ul);
+	
+	var liTabs = ul.getElementsByTagName("li");
+	console.log(liTabs);
+	
+	for(var i = 0; i < liTabs.length; i++) {
+		liTabs[i].onclick = onTabClicked;
+	}	
+}
 </script>
-
-
-
-
 
 </head>
 <body>
