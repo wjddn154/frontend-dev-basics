@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.addEventListener("load",function() {
+	var imgElement = document.createElement("img");
+	imgElement.src = 'https://lh3.googleusercontent.com/proxy/LEMDJG98hwSkepf9WXgiebA3t7BSNI3dap6R7O-C5IE8G9WDxetNyW--xNs02hrZ8vYw32P5kKwNBilOqJmffUxInsSln7bS1aLQ4phGTIC0ZV3QFSZje4sl5iCys71ro7niZippwzwqbSXqaS68wXE5RtJUkZ8fGg';
+	imgElement.alt = "같은 루피";
+	imgElement.title = "다른 느낌";
+	imgElement['data-no'] =  10;	/* 비표준 속성(property x) */
+	
+	setTimeout(function() {
+		document.body.appendChild(imgElement);
+// 		console.log(document.getElementById('h').data-no['data-no']);
+	}, 500);
+
+
+});
+ 
+</script>
+</head>
+<body>
+	<h1 id='h' data-no='10'>DOM(Document Object Model)</h1>
+	<h2>3. HTML Element 속성 조작하기</h2>
+	
+</body>
+</html>

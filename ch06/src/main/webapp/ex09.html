@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.addEventListener("load",function() {
+	var imgElement = document.createElement("img");
+	
+	// (표준(prop o) + 비표준(prop x)) 속성을 읽기/쓰기 위해서 setAttribute/getAttribute를 사용한다.
+	imgElement.setAttribute('src', 'https://lh3.googleusercontent.com/proxy/LEMDJG98hwSkepf9WXgiebA3t7BSNI3dap6R7O-C5IE8G9WDxetNyW--xNs02hrZ8vYw32P5kKwNBilOqJmffUxInsSln7bS1aLQ4phGTIC0ZV3QFSZje4sl5iCys71ro7niZippwzwqbSXqaS68wXE5RtJUkZ8fGg');
+	imgElement.setAttribute('style', 'width: 200px"');
+	imgElement.setAttribute('alt', "alt");
+	imgElement.setAttribute('title', "title");
+	imgElement['data-no'] = 20;					/* property o */
+	imgElement.setAttribute('data-no', 10);		/* 비표준 속성(property x) */
+	
+	setTimeout(function() {
+		document.body.appendChild(imgElement);
+		console.log(imgElement['data-no']);					/* property o */
+		console.log(imgElement.getAttribute('data-no'));	/* 비표준 속성(property x) */
+	}, 500);
+
+
+});
+ 
+</script>
+</head>
+<body>
+	<h1>DOM(Document Object Model)</h1>
+	<h2>3. HTML Element 속성 조작하기2</h2>
+	
+</body>
+</html>
