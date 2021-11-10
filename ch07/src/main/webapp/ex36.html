@@ -2,47 +2,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
-* 		{ margin: 0; padding: 0}
-body	{
-	font-family: "맑은 고딕";
-	font-size: 0.75em;
-	color: #333;
-}
-h1		{ width:150px; margin:10px auto }
-ul		{ width:150px; margin:20px auto 0 auto; list-style-type:none; border-top:1px solid #bbb }
-li		{ 
-	width:130; 
-	padding:10px; 
-	border-width:0 1px 1px 1px; 
-	border-style: solid; 
-	background-color:#fff; 
-	border-color: #bbb; 
-	font-weight:bold; 
-	cursor:pointer 
-}
-li.on	{ background-color:#287FC2; color:#fff }		
+<title>sample1</title>
+<link href='image-viewer.css' type='text/css' rel="stylesheet" />
+<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+<!--
+<script type="text/javascript" src="image-viewer.js"></script>
+<script>
+ImageViewer.init();
+</script>
+-->
 
-</style>
-<script type="text/javascript" src="./jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript">
-	$( function() {
-			
-		/* 코드를 완성하세요 */
-		
-	} );  
+var images = [ 
+	"국화:Chrysanthemum.jpg", 
+	"사막:Desert.jpg", 
+	"수국:Hydrangeas.jpg", 
+	"해파리:Jellyfish.jpg", 
+	"코알라:Koala.jpg", 
+	"등대:Lighthouse.jpg", 
+	"펭귄:Penguins.jpg", 
+	"툴립:Tulips.jpg" ];
+
+$(function(){
+	$("#btn-change").click(function(){
+		// 랜덤 변수 
+		var result = Math.floor( Math.random() * (images.length)  );	//0 ~ 7
+	
+		console.log(result);
+	
+	});
+	
+});
 </script>
 </head>
 <body>
-	<h1>메뉴리스트</h1>
-
-	<ul>
-		<li>아이템1</li>
-		<li>아이템2</li>
-		<li>아이템3</li>
-		<li>아이템4</li>
-		<li>아이템5</li>
-	</ul>
-	
+	<div class="image-viewer">
+		<!-- 과제 아래 버튼을 완성시키기 -->
+		<div class="buttons">
+			<button id="btn-change">이미지 변경</button>
+			<button id="btn-slideshow">슬라이드쇼 시작</button>
+		</div>
+		<div>
+			<img/>
+<!-- 			<img src="images/Desert.jpg" alt="사막" /> -->
+		</div>
+	</div>	
 </body>
 </html>

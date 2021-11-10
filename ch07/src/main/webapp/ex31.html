@@ -2,34 +2,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
-<script>
-$(function(){
+<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(function() {
 	setTimeout(function(){
-		$("#p1").text("1. 안녕하세요");
-		$("#p2").text("2. <strong>안녕하세요</strong>");
-		console.log($("#p3").text());
-		console.log($("#p4").text());
-	}, 1000);
-});
+		$("h2, p")
+			.wrapAll("<div>")
+			.parent()
+			.css({
+				border: "2px solid #ccc",
+				padding: "10px",
+				width: "200px"
+			});
+	}, 2000);
+});  
 </script>
 </head>
 <body>
-	<h1>DOM 조작 API - text()</h1>
-
-	<p id="p1">...</p>
-	<p id="p2">...</p>
-	<p id='p3'>3.안녕하세요</p>
-	<p id='p4'>4.<strong>안녕하세요</strong> 라고 인사하면 <em>쌩</em>깐다.</p>
-	<!--  
-		HTML의 escape 문자들
-		& -> &amp;
-		space -> &nbsp;
-		< -> &lth;
-		> -> &gt;
-		' -> &quot;
-	-->
-	<h4>Back &amp; White</h4>
-	<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that</h4>	
+	<h1>DOM 조작 API - wrapAll()</h1>
+	
+	<h2>타이틀입니다.</h2>
+	<p>내용입니다.</p>
 </body>
 </html>
