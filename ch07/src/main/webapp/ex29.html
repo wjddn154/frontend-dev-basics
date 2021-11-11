@@ -6,26 +6,15 @@
 <script>
 $(function(){
 	setTimeout(function(){
-		$(".d1").wrap("<h2>");
-		$(".d2")
-			.wrap("<h3>")
-			.css("paddingLeft", "40px");
-		
+		$("#p1").insertAfter("#h2");
 	}, 1000);
 });
 </script>
 </head>
 <body>
-	<h1>DOM 조작 API - wrap()</h1>
+	<h1>DOM 조작 API - insertAfter()</h1>
 
-	<em class="d1">1장</em>
-	<em class="d2">1-1 절</em>
-	<em class="d2">1-2 절</em>
-	<em class="d2">1-2 절</em>
-	
-	<em class="d1">2장</em>
-	<em class="d2">2-1 절</em>
-	<em class="d2">2-2 절</em>
-	<em class="d2">2-2 절</em>
+	<p id="p1">내용입니다.</p>
+	<h2 id="h2">제목입니다.</h2>
 </body>
 </html>

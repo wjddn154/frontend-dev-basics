@@ -25,14 +25,35 @@ var images = [
 
 $(function(){
 	$("#btn-change").click(function(){
+		
 		// 랜덤 변수 
 		var result = Math.floor( Math.random() * (images.length)  );	//0 ~ 7
-	
-		console.log(result);
-	
+		console.log(images[result].split(':')[1]);
+		
+		$("img").attr("src", "images/" + images[result].split(':')[1]);				
 	});
-	
 });
+
+// setInterval(function() {
+// 	slideshow();
+// }, 500);
+
+$(function(){
+	$("#btn-slideshow").click(function(){
+		// 랜덤 변수 
+	console.log("!!!!");
+// 	setInterval(function() {
+		for(var count=0; count<images.length; count++){
+			$("img").attr("src", "images/" + images[count].split(':')[1]);
+				console.log("count : " + count);
+		}
+// 	}, 1000);
+		
+	});
+});
+
+
+
 </script>
 </head>
 <body>
