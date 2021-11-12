@@ -66,7 +66,7 @@ window.addEventListener("DOMContentLoaded", function() {
 						.innerHTML = html;
 				}
 
-				});
+			});
 			
 			xhr.open("get", '${pageContext.request.contextPath }/api/json', true);
 			xhr.send();

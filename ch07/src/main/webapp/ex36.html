@@ -23,36 +23,83 @@ var images = [
 	"펭귄:Penguins.jpg", 
 	"툴립:Tulips.jpg" ];
 
+
+//이미지 변경
+var temp;
 $(function(){
 	$("#btn-change").click(function(){
 		
 		// 랜덤 변수 
 		var result = Math.floor( Math.random() * (images.length)  );	//0 ~ 7
-		console.log(images[result].split(':')[1]);
 		
-		$("img").attr("src", "images/" + images[result].split(':')[1]);				
+		// 중복 방지
+		if(result == temp){
+			result = Math.floor( Math.random() * (images.length)  );
+		}
+		temp = result;
+		console.log(images[temp].split(':')[1]);
+		
+		$("img").attr("src", "images/" + images[temp].split(':')[1]);				
 	});
 });
 
-// setInterval(function() {
-// 	slideshow();
-// }, 500);
 
+var index = 1;
+var flag = 1;
+
+//슬리아드 쇼/중지 버튼
 $(function(){
 	$("#btn-slideshow").click(function(){
-		// 랜덤 변수 
-	console.log("!!!!");
-// 	setInterval(function() {
-		for(var count=0; count<images.length; count++){
-			$("img").attr("src", "images/" + images[count].split(':')[1]);
-				console.log("count : " + count);
+// 		console.log("flag : " + flag);
+		if(flag == 1){
+			slideShowOn();
+		} else {
+			slideShowOff();
 		}
-// 	}, 1000);
-		
+
 	});
 });
 
 
+//슬라이드 쇼 on
+function slideShowOn() {
+	flag=0;
+	$("#btn-slideshow").html("슬라이드쇼 중지");
+	$("img").attr("src", "images/" + images[index].split(':')[1]);
+	slideShow();
+}
+function slideShow() {
+	setTimeout(function() {
+		
+		if(index > images.length) {
+			index = (index-1) % (images.length);
+			flag = 1;
+			console.log("index : " + index);
+			return false;
+		}
+
+		$("img").attr("src", "images/" + images[index].split(':')[1]);
+		index++;
+		
+		if(index < images.length) {
+			slideShow();
+		} else {
+			index -= images.length;
+			slideShow();
+		}
+		
+	}, 500);
+}
+
+
+
+//슬라이드쇼 off
+function slideShowOff() {
+	$("#btn-slideshow").html("슬라이드쇼 시작");
+
+		index = index + (images.length+1);
+		console.log("index : " + index);
+};
 
 </script>
 </head>
@@ -62,6 +109,7 @@ $(function(){
 		<div class="buttons">
 			<button id="btn-change">이미지 변경</button>
 			<button id="btn-slideshow">슬라이드쇼 시작</button>
+<!-- 			<button id="btn-stop">멈춰!</button> -->
 		</div>
 		<div>
 			<img/>
