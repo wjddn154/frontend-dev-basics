@@ -15,23 +15,24 @@ import com.douzone.ch08.controller.vo.GuestbookVO;
 
 @Controller
 @RequestMapping("/api/guestbook")
-public class GusetbookController {
+public class GuestbookController {
+
 	
 	@ResponseBody
 	@RequestMapping("/add")
 	public JsonResult ex1(@RequestBody GuestbookVO vo) {
-		//guestbookoService.addMessage(vo)를 사용해서 등록작업
+		// vo = guestbookService.addMessage(vo)를 사용해서 등록작업
 		vo.setNo(1L);
 		vo.setPassword("");
-		
 		
 		return JsonResult.success(vo);
 	}
 	
 	@ResponseBody
 	@RequestMapping("/list")
-	public JsonResult ex2(@RequestParam(value="sn", required=true, defaultValue= "-1") Long no) {
-		//guestbookoService.findAll(no)를 사용해서 리스트 가져오기
+	public JsonResult ex2(
+		@RequestParam(value="sn", required=true, defaultValue="-1") Long no) {
+		// vo = guestbookService.findAll(no)를 사용해서 리스트 가져오기
 		List<GuestbookVO> list = new ArrayList<>();
 		
 		GuestbookVO vo = new GuestbookVO();
@@ -45,13 +46,13 @@ public class GusetbookController {
 		vo.setName("둘리2");
 		vo.setMessage("메세지2");
 		list.add(vo);
-		
+
 		vo = new GuestbookVO();
 		vo.setNo(3L);
 		vo.setName("둘리3");
 		vo.setMessage("메세지3");
 		list.add(vo);
-		
+
 		vo = new GuestbookVO();
 		vo.setNo(4L);
 		vo.setName("둘리4");
@@ -63,14 +64,15 @@ public class GusetbookController {
 		vo.setName("둘리5");
 		vo.setMessage("메세지5");
 		list.add(vo);
-		
+
 		return JsonResult.success(list);
 	}
-	
+		
 	@ResponseBody
 	@RequestMapping("/delete/{no}")
 	public JsonResult ex3(@PathVariable("no") Long no, String password) {
-		//vo = guestbookoService.deleteMesaage(no, password)를 사용해서 등록작업
+		// result = guestbookService.deleteMessage(no, password)를 사용해서 삭제작업
+		
 		Long data = 0L;
 		
 		//1. 삭제가 안된 경우
@@ -79,14 +81,7 @@ public class GusetbookController {
 		//2. 삭제가 된 경우
 		data = no;
 		
-		
-		
-		
 		return JsonResult.success(data);
 	}
-	
-	
-	
-	
 	
 }
