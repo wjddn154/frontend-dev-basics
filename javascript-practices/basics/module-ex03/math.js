@@ -15,8 +15,9 @@ exports.max = function() {
 
 exports.min = function() {
     var min = Number.MAX_SAFE_INTEGER;
-    Array.from(arguments).forEach(function(e){
-        min = e < min ? e : min;
+    // Array.from(arguments).forEach(function(e){
+    Array.from(arguments).forEach(e => {
+            min = e < min ? e : min;
     });
 
     return min

@@ -6,5 +6,4 @@ module.exports =  {
 
 exports.b = false;
 exports.f = function() {
-
-}
+};
