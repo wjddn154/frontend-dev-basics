@@ -5,13 +5,12 @@
 <title>sample1</title>
 <link href='image-viewer.css' type='text/css' rel="stylesheet" />
 <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
-<!--
+<!-- 
 <script type="text/javascript" src="image-viewer.js"></script>
 <script>
 ImageViewer.init();
 </script>
--->
-
+ -->
 <script type="text/javascript">
 var images = [ 
 	"국화:Chrysanthemum.jpg", 
@@ -50,7 +49,6 @@ var flag = 1;
 //슬리아드 쇼/중지 버튼
 $(function(){
 	$("#btn-slideshow").click(function(){
-// 		console.log("flag : " + flag);
 		if(flag == 1){
 			slideShowOn();
 		} else {

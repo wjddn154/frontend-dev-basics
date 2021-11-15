@@ -32,7 +32,7 @@ public class GuestbookController {
 	@RequestMapping("/list")
 	public JsonResult ex2(
 		@RequestParam(value="sn", required=true, defaultValue="-1") Long no) {
-		// vo = guestbookService.findAll(no)를 사용해서 리스트 가져오기
+		// list = guestbookService.findAll(no)를 사용해서 리스트 가져오기
 		List<GuestbookVO> list = new ArrayList<>();
 		
 		GuestbookVO vo = new GuestbookVO();
