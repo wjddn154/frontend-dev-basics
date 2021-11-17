@@ -24,7 +24,7 @@ public class GuestbookController {
 		// vo = guestbookService.addMessage(vo)를 사용해서 등록작업
 		vo.setNo(1L);
 		vo.setPassword("");
-		
+		System.out.println(vo);
 		return JsonResult.success(vo);
 	}
 	
